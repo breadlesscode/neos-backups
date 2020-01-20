@@ -1,5 +1,6 @@
 module.exports = {
     title: 'Neos Backups',
+    base: process.env.NODE_ENV === 'production'? '/neos-backups/': '/',
     themeConfig: {
         nav: [
             {text: 'Github', link: 'https://github.com/breadlesscode/neos-backups'}

@@ -18,10 +18,10 @@ jobs:
     - name: 'Install dependencies'
       run: npm -v && npm install
     - name: 'Build documentation'
-      run: npm run docs:build
+      run: npm run docs:prod
     - name: 'Deploy to GitHub-Pages'
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages 
+        BRANCH: gh-pages
         FOLDER: Documentation/.vuepress/dist
