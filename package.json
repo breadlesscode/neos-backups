@@ -1,0 +1,19 @@
+{
+  "name": "breadlesscode.backups",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "docs:dev": "vuepress dev Documentation",
+    "docs:build": "vuepress build Documentation"
+  },
+  "keywords": [
+    "backups",
+    "neos",
+    "cms"
+  ],
+  "author": "Marvin Kuhn",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.2.0"
+  }
+}
