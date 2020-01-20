@@ -13,5 +13,5 @@ features:
   details: Its free, why not use it? Its always better to have backups.
 - title: Open Source
   details: You discovered a bug? No problem, go to the Github page and report it. 
-footer: MIT Licensed | Copyright © 2020 by Marvin Kuhn
+footer: GPL-3.0 Licensed | Copyright © 2020 by Marvin Kuhn
 ---
