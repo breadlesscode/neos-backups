@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installation | Neos Backups</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.e670fcbc.css" as="style"><link rel="preload" href="/assets/js/app.97a87829.js" as="script"><link rel="preload" href="/assets/js/2.8c61c927.js" as="script"><link rel="preload" href="/assets/js/8.7daf3b19.js" as="script"><link rel="prefetch" href="/assets/js/10.ca521701.js"><link rel="prefetch" href="/assets/js/3.181d06a7.js"><link rel="prefetch" href="/assets/js/4.6b1b1ab7.js"><link rel="prefetch" href="/assets/js/5.ec4ed4ec.js"><link rel="prefetch" href="/assets/js/6.65a0a16c.js"><link rel="prefetch" href="/assets/js/7.76fe5a19.js"><link rel="prefetch" href="/assets/js/9.7b0bb826.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e670fcbc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Neos Backups</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/breadlesscode/neos-backups" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/breadlesscode/neos-backups" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/installation.html" class="active sidebar-link">Installation</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/installation.html#setup-configuration" class="sidebar-link">Setup configuration</a></li></ul></li><li><a href="/filesystems.html" class="sidebar-link">Filesystems</a></li><li><a href="/steps.html" class="sidebar-link">Backup Steps</a></li><li><a href="/custom-behaviours.html" class="sidebar-link">Custom behaviours</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="installation"><a href="#installation" class="header-anchor">#</a> Installation</h1> <p>You can easly add this package via composer.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require breadlesscode/neos-backups
+</code></pre></div><h2 id="setup-configuration"><a href="#setup-configuration" class="header-anchor">#</a> Setup configuration</h2> <p>First you have to choose a <a href="/filesystems.html">filesystem</a> where you want to store the backups.
+Than you have to configure all backup steps you want to use.</p> <p>Example Configuration:</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">Breadlesscode</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Backups</span><span class="token punctuation">:</span>
+    <span class="token key atrule">filesystem</span><span class="token punctuation">:</span>
+      <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'local'</span>
+      <span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">'%FLOW_PATH_DATA%Persistent/Backups'</span>
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span> <span class="token comment">#{}</span>
+      <span class="token key atrule">'Breadlesscode\Backups\Step\SiteExportStep'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token key atrule">'Breadlesscode\Backups\Step\FileExportStep'</span><span class="token punctuation">:</span>
+        <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+          <span class="token key atrule">logs</span><span class="token punctuation">:</span> <span class="token string">'%FLOW_PATH_DATA%Logs'</span>
+      <span class="token key atrule">'Breadlesscode\Backups\Step\MysqlTableExportStep'</span><span class="token punctuation">:</span>
+        <span class="token key atrule">tables</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> neos_flow_security_account
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/breadlesscode/neos-backups/edit/master/Documentation/installation.md" target="_blank" rel="noopener noreferrer">Help me improve this page!</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/20/2020, 8:30:06 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/filesystems.html">Filesystems</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.97a87829.js" defer></script><script src="/assets/js/2.8c61c927.js" defer></script><script src="/assets/js/8.7daf3b19.js" defer></script>
+  </body>
+</html>
