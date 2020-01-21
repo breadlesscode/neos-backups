@@ -9,6 +9,7 @@ module.exports = {
             '/installation',
             '/filesystems',
             '/steps',
+            '/commands',
             '/custom-behaviours'
         ],
         theme: '@vuepress/theme-default',
