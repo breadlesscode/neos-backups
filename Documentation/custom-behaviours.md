@@ -1,10 +1,10 @@
-# Custom behaviours
+# Custom behaviors
 
 You have the possibility to create your own step, name generator and compressor.
 
-- [Custom step](#custom-step)
-- [Custom name generator](#custom-name-generator)
-- [Custom compressor](#custom-compressor)
+- [Custom step example](#custom-step)
+- [Custom name generator example](#custom-name-generator)
+- [Custom compressor example](#custom-compressor)
 
 ## Custom step
 
@@ -84,11 +84,13 @@ Breadlesscode\Backups\Generators\BackupNameGeneratorInterface:
 
 ## Custom compressor
 
+MyCustomCompressor.php
+
 ```php
 <?php
 namespace My\Vendor\Compressor;
 
-class MyCompressor extends AbstractCompressor
+class MyCustomCompressor extends AbstractCompressor
 {
     public function compress(string $source, string $targetFolder): ?string
     {
@@ -107,4 +109,11 @@ class MyCompressor extends AbstractCompressor
         return $name.'.tar.xyz';
     }
 }
+```
+
+Settings.yaml
+```yaml
+Breadlesscode:
+  Backups:
+    compressor: My\Vendor\Compressor\MyCustomCompressor
 ```
