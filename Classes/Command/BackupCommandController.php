@@ -31,6 +31,9 @@ class BackupCommandController extends CommandController
 
     /**
      * restores a single backup of a specific package
+     *
+     * @param string $name The name of the backup you want to restore
+     * @param bool $noConfirm If true, you dant have to confirm the restore action
      */
     public function restoreCommand(string $name, bool $noConfirm = false): void
     {
@@ -73,6 +76,9 @@ class BackupCommandController extends CommandController
 
     /**
      * lists all backups
+     *
+     * @param int $offset Offset
+     * @param int $limit Number of backups shown
      */
     public function listCommand($offset = 0, $limit = 60): void
     {
@@ -89,6 +95,9 @@ class BackupCommandController extends CommandController
 
     /**
      * deletes backups
+     *
+     * @param string $name The name of the backup you want to delete
+     * @param bool $noConfirm If true, you dant have to confirm the delete action
      */
     public function deleteCommand(string $name, bool $noConfirm = false): void
     {
