@@ -32,14 +32,14 @@ Breadlesscode:
   Backups:
     filesystem:
       type: 'sftp'
-      host: 'example.com',
-      port: 22,
-      username: 'username',
-      password: 'password',
-      privateKey: 'path/to/or/contents/of/privatekey',
-      passphrase: 'passphrase-for-privateKey',
-      root: '/path/to/root',
-      timeout: 10,
+      host: 'example.com'
+      port: 22
+      username: 'username'
+      password: 'password'
+      privateKey: 'path/to/or/contents/of/privatekey'
+      passphrase: 'passphrase-for-privateKey'
+      root: '/path/to/root'
+      timeout: 10
       directoryPerm: 0755
 ```
 ## AWS-S3
