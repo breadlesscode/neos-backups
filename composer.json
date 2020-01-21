@@ -2,7 +2,7 @@
     "name": "breadlesscode/neos-backups",
     "description": "This plugin is for managing backups in Neos CMS",
     "type": "neos-plugin",
-    "license": "MIT",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "Marvin Kuhn",
