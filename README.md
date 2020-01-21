@@ -22,8 +22,8 @@ This Neos CMS plugin is for creating backups on different filesystems.
 - Free and open source
 
 ## Requirements
-- PHP 7.1
-- Neos ???
+- PHP <= 7.1
+- Neos <= 4.0
 
 ## Installation
 
