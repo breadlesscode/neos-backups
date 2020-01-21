@@ -194,7 +194,7 @@ class BackupService
 
     public function noStepsConfigured(): bool
     {
-        return count($this->config['steps']) > 0;
+        return count($this->config['steps']) === 0;
     }
 
     public function getBackup(string $name)
