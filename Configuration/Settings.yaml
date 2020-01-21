@@ -1,0 +1,15 @@
+Breadlesscode:
+  Backups:
+    tempPath: '%FLOW_PATH_DATA%Temporary/Backups'
+    compressor: 'Breadlesscode\Backups\Compressor\ZipCompressor'
+    filesystem:
+      type: 'local'
+      path: '%FLOW_PATH_DATA%Persistent/Backups'
+    steps: {}
+    adapterFactories:
+      local: 'Breadlesscode\Backups\Factory\LocalAdapterFactory'
+      aws-s3: 'Breadlesscode\Backups\Factory\AwsS3AdapterFactory'
+      azure: 'Breadlesscode\Backups\Factory\AzureBlobAdapterFactory'
+      dropbox: 'Breadlesscode\Backups\Factory\DropboxAdapterFactory'
+      google-storage: 'Breadlesscode\Backups\Factory\GoogleStorageAdapterFactory'
+      sftp: 'Breadlesscode\Backups\Factory\SftpAdapterFactory'

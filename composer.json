@@ -1,0 +1,35 @@
+{
+    "name": "breadlesscode/neos-backups",
+    "description": "This plugin is for managing backups in Neos CMS",
+    "type": "neos-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marvin Kuhn",
+            "email": "marvin@kuhnweblab.com",
+            "homepage": "https://kuhnweblab.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "neos/neos": "^5.0",
+        "neos/fusion-form": "*",
+        "league/flysystem": "^1.0",
+        "league/csv": "^9.5",
+        "nesbot/carbon": "^2.28"
+    },
+    "autoload": {
+        "psr-4": {
+            "Breadlesscode\\Backups\\": "Classes/"
+        }
+    },
+    "archive": {
+        "exclude": ["Documentation/"]
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Breadlesscode.Backups"
+        }
+    }
+}

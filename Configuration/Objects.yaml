@@ -1,0 +1,2 @@
+Breadlesscode\Backups\Generators\BackupNameGeneratorInterface:
+  className: 'Breadlesscode\Backups\Generators\BackupNameGenerator'
