@@ -1,6 +1,12 @@
 # Installation
 
-You can easly add this package via composer. 
+You can easly add this package via composer. Check the requirements and run the command below.
+
+**Requirements:**
+- PHP <= 7.1
+- Neos <= 4.0
+
+Composer command:
 
 ```bash
 composer require breadlesscode/neos-backups
