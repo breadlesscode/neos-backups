@@ -24,7 +24,7 @@ Breadlesscode:
     filesystem:
       type: 'local'
       path: '%FLOW_PATH_DATA%Persistent/Backups'
-    steps: #{}
+    steps:
       'Breadlesscode\Backups\Step\SiteExportStep': []
       'Breadlesscode\Backups\Step\FileExportStep':
         paths:
