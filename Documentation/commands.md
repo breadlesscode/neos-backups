@@ -35,7 +35,7 @@ Restores a single backup.
 
 #### Options
 `--no-confirm` <br />
-If this flag is set, you dont have to confirm this action by pressing `Y` + `Return`.
+If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>.
 
 
 ### `backup:delete`
@@ -48,4 +48,4 @@ Deletes a single backup.
 
 #### Options
 `--no-confirm` <br />
-If this flag is set, you dont have to confirm this action by pressing `Y` + `Return`. 
+If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>. 
