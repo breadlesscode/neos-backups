@@ -1,6 +1,6 @@
 # Commands
 
-### `backup:list`
+## `backup:list`
 
 Lists backups available.
 
@@ -16,7 +16,7 @@ The index where this command should start listing
 The number of backups shown
 
 
-### `backup:create`
+## `backup:create`
 
 Creates a single backup.
 
@@ -25,7 +25,7 @@ Creates a single backup.
 ```
 
 
-### `backup:restore`
+## `backup:restore`
 
 Restores a single backup.
 
@@ -38,7 +38,7 @@ Restores a single backup.
 If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>.
 
 
-### `backup:delete`
+## `backup:delete`
 
 Deletes a single backup.
 
@@ -52,7 +52,7 @@ If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kb
 
 
 
-### `backup:prune`
+## `backup:prune`
 
 Deletes all backups, but you can keep the latest X Backups with the `--keep` option.
 
