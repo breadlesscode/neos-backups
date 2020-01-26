@@ -56,7 +56,7 @@ class BackupCommandController extends CommandController
         }
 
         if ($noConfirm === false) {
-            $shouldRestore = $this->output->askConfirmation('Are you sure you want to restore this Backup?', false);
+            $shouldRestore = $this->output->askConfirmation('Are you sure you want to restore this Backup? ', false);
         }
 
         if(!$shouldRestore) {
@@ -104,7 +104,7 @@ class BackupCommandController extends CommandController
         $confirmed = true;
 
         if (!$noConfirm) {
-            $confirmed = $this->output->askConfirmation('Are you sure you want to delete this backup?');
+            $confirmed = $this->output->askConfirmation('Are you sure you want to delete this backup? ');
         }
 
         if (!$confirmed) {
@@ -117,6 +117,43 @@ class BackupCommandController extends CommandController
 
         try {
             $this->backupService->deleteBackup($name);
+            $this->outputLine('<success>success</success>');
+        } catch (\Exception $e) {
+            $this->outputError($e->getMessage());
+        }
+    }
+
+    /**
+     * deletes all backups, but can keep X latest backups
+     *
+     * @param int $keep keep the latest X backups
+     * @param bool $noConfirm If true, you dant have to confirm the delete action
+     */
+    public function pruneCommand(int $keep = 0, bool $noConfirm = false): void
+    {
+        $confirmed = true;
+
+        if (!$noConfirm) {
+            $question = ($keep > 0 ? ', except the latest '.$keep.' backups': '');
+            $question = 'Are you sure you want to delete all backups'.$question.'? ';
+            $confirmed = $this->output->askConfirmation($question);
+        }
+
+        if (!$confirmed) {
+            $this->outputLine();
+            $this->outputLine('<error>Canceled by user</error>');
+            $this->quit();
+        }
+
+        $backupCount = $this->backupService->getCount();
+        $backups = $this->backupService->getBackups($keep, $backupCount);
+
+        $this->output('Deleting '.($backupCount - $keep <= 0 ? '0': $backupCount - $keep).' backups...');
+
+        try {
+            foreach ($backups as $backup) {
+                $this->backupService->deleteBackup($backup['name']);
+            }
             $this->outputLine('<success>success</success>');
         } catch (\Exception $e) {
             $this->outputError($e->getMessage());

@@ -191,6 +191,10 @@ class BackupService
         return $steps;
     }
 
+    public function getCount(): int
+    {
+        return $this->indexService->getCount();
+    }
 
     public function noStepsConfigured(): bool
     {

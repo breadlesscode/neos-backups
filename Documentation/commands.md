@@ -49,3 +49,20 @@ Deletes a single backup.
 #### Options
 `--no-confirm` <br />
 If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>. 
+
+
+
+### `backup:prune`
+
+Deletes all backups, but you can keep the latest X Backups with the `--keep` option.
+
+```bash
+./flow backup:prune
+```
+
+#### Options
+`--no-confirm` <br />
+If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>. 
+
+`--keep x` <br />
+Keep the latest X Backups
