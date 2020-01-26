@@ -116,6 +116,9 @@ class BackupService
         // persist all changes from the steps
         $this->persistenceManager->persistAll();
         $this->logger->info('restored backup '.$name);
+        // delete temp stuff
+        Files::removeDirectoryRecursively($backupPath);
+        Files::unlink($archivePath);
     }
 
 
