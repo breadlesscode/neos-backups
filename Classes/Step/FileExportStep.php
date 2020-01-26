@@ -19,11 +19,7 @@ class FileExportStep extends StepAbstract
         foreach ($copyPaths as $folderName => $path) {
             $tmpBackupPath = Files::concatenatePaths([$this->getBackupStepPath(), $folderName]);
 
-            if (is_dir($path)) {
-                $this->copyDirectory($path, $tmpBackupPath);
-            } else {
-                copy($path, $tmpBackupPath);
-            }
+            Files::copyDirectoryRecursively($path, $tmpBackupPath);
         }
 
         return true;
@@ -36,11 +32,9 @@ class FileExportStep extends StepAbstract
         foreach ($copyPaths as $folderName => $path) {
             $tmpBackupPath = Files::concatenatePaths([$this->getBackupStepPath(), $folderName]);
 
-            if (is_dir($path)) {
-                $this->copyDirectory($tmpBackupPath, $path);
-            } else {
-                copy($tmpBackupPath, $path);
-            }
+            Files::removeDirectoryRecursively($path);
+            Files::createDirectoryRecursively($path);
+            Files::copyDirectoryRecursively($tmpBackupPath, $path);
         }
 
         return true;
@@ -59,28 +53,5 @@ class FileExportStep extends StepAbstract
         }
 
         return $restoreWarning;
-    }
-
-    protected function copyDirectory(string $source, string $dest)
-    {
-        $dir = opendir($source);
-        mkdir($dest);
-
-        while(false !== ($file = readdir($dir))) {
-            if ($file === '.' || $file === '..') {
-                continue;
-            }
-
-            $srcFile = $source.'/'.$file;
-            $destFile = $dest.'/'.$file;
-
-            if (is_dir($srcFile)) {
-                $this->copyDirectory($srcFile, $destFile);
-            } else {
-                copy($srcFile, $destFile);
-            }
-        }
-
-        closedir($dir);
     }
 }
