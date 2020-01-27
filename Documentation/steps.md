@@ -40,8 +40,8 @@ Breadlesscode:
   Backups:
     steps:
       'Breadlesscode\Backups\Step\MysqlTableExportStep':
-        mysqlDumpBinPath: 'mysqldump'
-        mysqlBinPath: 'mysql'
+        mysqlDumpBinPath: 'mysqldump' # default value
+        mysqlBinPath: 'mysql' # default value
         tables:
           - neos_flow_security_account
 ```
