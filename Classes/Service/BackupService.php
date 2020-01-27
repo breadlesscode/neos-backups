@@ -82,9 +82,10 @@ class BackupService
     public function deleteBackup(string $name): bool
     {
         $this->indexService->deleteBackup($name);
+        $backupFilename = $this->getCompressor()->generateFilename($name);
 
-        if ($this->filesystem->has($name)) {
-            $this->filesystem->delete($name);
+        if ($this->filesystem->has($backupFilename)) {
+            $this->filesystem->delete($backupFilename);
         }
 
         $this->logger->info('deleted backup '.$name);
