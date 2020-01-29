@@ -3,8 +3,8 @@
 You can easily add this package via composer. Check the requirements and run the command below.
 
 **Requirements:**
-- PHP <= 7.1
-- Neos <= 4.0
+- PHP >= 7.1
+- Neos >= 4.0
 
 Composer command:
 
