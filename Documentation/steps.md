@@ -1,12 +1,12 @@
-# Backup Steps
+# Backup steps
 
 * [File/Directory copy step](#file-directory-copy-step)
 * [Site export step](#site-export-step)
-* [MySql-Table export step](#mysql-table-export-step)
+* [MySQL table export step](#mysql-table-export-step)
 
 
 ## File export step
-This is a easy step to copy files and directories into the backup.
+This is an easy step to copy files and directories into the backup.
 
 Example configuration:
 ```yaml
@@ -19,8 +19,8 @@ Breadlesscode:
 ```
 
 ## Site export step
-This step uses the Neos CMS site export functionality to export sites and his resources 
-into a XML-File.
+This step uses the Neos CMS site export functionality to export sites and its resources 
+into an XML-File.
 
 Example configuration:
 ```yaml
@@ -30,9 +30,9 @@ Breadlesscode:
       'Breadlesscode\Backups\Step\SiteExportStep': []
 ```
 
-## MySql-Table export step
+## MySQL table export step
 
-This step exports MySql-Tables via the `mysqldump`-Binary.
+This step exports MySQL tables via the `mysqldump` binary.
 
 Example configuration:
 ```yaml

@@ -1,6 +1,6 @@
-# Filesystems
+# File systems
 
-This package provides the following filesystem adapter by default:
+This package provides the following file system adapters by default:
 
 * [Local](#local)
 * [SFTP](#sftp)

@@ -2,7 +2,7 @@
 
 ## `backup:list`
 
-Lists backups available.
+Lists all available backups.
 
 ```bash
 ./flow backup:list
@@ -13,7 +13,7 @@ Lists backups available.
 The index where this command should start listing
 
 `--limit` <br />
-The number of backups shown
+The number of backups to show
 
 
 ## `backup:create`
@@ -27,7 +27,7 @@ Creates a single backup.
 
 ## `backup:restore`
 
-Restores a single backup.
+Restores a single backup by name.
 
 ```bash
 ./flow backup:restore <name>
@@ -35,12 +35,12 @@ Restores a single backup.
 
 #### Options
 `--no-confirm` <br />
-If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>.
+If this flag is set, you don't have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>.
 
 
 ## `backup:delete`
 
-Deletes a single backup.
+Deletes a single backup by name.
 
 ```bash
 ./flow backup:delete <name>
@@ -48,13 +48,13 @@ Deletes a single backup.
 
 #### Options
 `--no-confirm` <br />
-If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>. 
+If this flag is set, you don't have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>. 
 
 
 
 ## `backup:prune`
 
-Deletes all backups, but you can keep the latest X Backups with the `--keep` option.
+Deletes all current backups.
 
 ```bash
 ./flow backup:prune
@@ -62,7 +62,7 @@ Deletes all backups, but you can keep the latest X Backups with the `--keep` opt
 
 #### Options
 `--no-confirm` <br />
-If this flag is set, you dont have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>. 
+If this flag is set, you don't have to confirm this action by pressing <kbd>Y</kbd> + <kbd>Return</kbd>. 
 
 `--keep x` <br />
-Keep the latest X Backups
+Keeps the latest x backups
