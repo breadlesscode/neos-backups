@@ -25,7 +25,7 @@ class MyCustomExportStep extends StepAbstract
 
     /**
      * your restore warning markdown string
-     * if a this property is not sufficient,
+     * if this property is not sufficient,
      * you can override the getRestoreWarning() method
      * 
      * @var string 

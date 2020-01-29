@@ -1,6 +1,6 @@
 # Installation
 
-You can easly add this package via composer. Check the requirements and run the command below.
+You can easily add this package via composer. Check the requirements and run the command below.
 
 **Requirements:**
 - PHP <= 7.1
@@ -14,10 +14,10 @@ composer require breadlesscode/neos-backups
 
 ## Setup configuration
 
-First you have to choose a [filesystem](./filesystems.md) where you want to store the backups.
-Than you have to configure all backup steps you want to use. 
+First you have to choose a [file system](./filesystems.md) where you want to store the backups.
+Then you have to configure which backup steps you want to use. 
 
-Example Configuration:
+Example configuration:
 ```yaml
 Breadlesscode:
   Backups:
