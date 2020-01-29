@@ -128,6 +128,11 @@ class BackupIndexService
         return $success;
     }
 
+    public function getCount(): int
+    {
+        return $this->getReader()->count();
+    }
+
     public function getBackups(int $start = 0, int $limit = 25): array
     {
         $reader = $this->getReader();

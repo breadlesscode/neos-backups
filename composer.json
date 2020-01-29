@@ -2,7 +2,7 @@
     "name": "breadlesscode/neos-backups",
     "description": "This plugin is for managing backups in Neos CMS",
     "type": "neos-plugin",
-    "license": "GPL-3.0-only",
+    "license": "LGPL-3.0-only",
     "authors": [
         {
             "name": "Marvin Kuhn",
@@ -14,7 +14,6 @@
     "require": {
         "php": "^7.1",
         "neos/neos": "^4.0 | ^5.0",
-        "neos/fusion-form": "*",
         "league/flysystem": "^1.0",
         "league/csv": "^9.5",
         "nesbot/carbon": "^2.28"

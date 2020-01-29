@@ -10,9 +10,11 @@ use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Exception;
+use Neos\Flow\Log\PsrLoggerFactoryInterface;
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use Neos\Flow\Persistence\Doctrine\PersistenceManager;
 use Neos\Utility\Files;
+use Psr\Log\LoggerInterface;
 
 /**
  * @Flow\Scope(value="singleton")
@@ -45,6 +47,11 @@ class BackupService
      */
     protected $persistenceManager;
 
+    /**
+     * @var LoggerInterface#
+     */
+    protected $logger;
+
     public function __construct(ObjectManagerInterface $objectManager)
     {
         $this->objectManager = $objectManager;
@@ -54,8 +61,12 @@ class BackupService
     {
         $this->indexService = $this->objectManager->get(BackupIndexService::class);
         $this->persistenceManager = $this->objectManager->get(PersistenceManager::class);
+
         $filesystemFactory = $this->objectManager->get(FilesystemFactory::class);
         $this->filesystem = $filesystemFactory->get($this->config['filesystem']['type']);
+
+        $loggerFactory = $this->objectManager->get(PsrLoggerFactoryInterface::class);
+        $this->logger = $loggerFactory->get('backupLogger');
     }
 
     public function getBackups(int $start = 0, int $limit = 0): array
@@ -71,10 +82,13 @@ class BackupService
     public function deleteBackup(string $name): bool
     {
         $this->indexService->deleteBackup($name);
+        $backupFilename = $this->getCompressor()->generateFilename($name);
 
-        if ($this->filesystem->has($name)) {
-            $this->filesystem->delete($name);
+        if ($this->filesystem->has($backupFilename)) {
+            $this->filesystem->delete($backupFilename);
         }
+
+        $this->logger->info('deleted backup '.$name);
 
         return true;
     }
@@ -102,6 +116,10 @@ class BackupService
         }
         // persist all changes from the steps
         $this->persistenceManager->persistAll();
+        $this->logger->info('restored backup '.$name);
+        // delete temp stuff
+        Files::removeDirectoryRecursively($backupPath);
+        Files::unlink($archivePath);
     }
 
 
@@ -136,6 +154,7 @@ class BackupService
         Files::removeDirectoryRecursively($backupPath);
         // update index
         $this->indexService->addBackup($backupName, new \DateTime(), $meta);
+        $this->logger->info('added backup '.$backupName);
     }
 
     /**
@@ -191,6 +210,10 @@ class BackupService
         return $steps;
     }
 
+    public function getCount(): int
+    {
+        return $this->indexService->getCount();
+    }
 
     public function noStepsConfigured(): bool
     {
