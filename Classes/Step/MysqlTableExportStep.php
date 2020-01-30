@@ -21,17 +21,19 @@ class MysqlTableExportStep extends StepAbstract
     public function backup(): bool
     {
         $mysqlDumpPath = $this->config['mysqlDumpBinPath'] ?? 'mysqldump';
+        $mysqlDumpOptions = $this->config['mysqlDumpOptions'] ?? [];
         $backupPath = $this->getBackupStepPath();
 
         foreach ($this->config['tables'] as $table) {
             $outputFileName = $backupPath.'/'.$table.'.sql';
-            $command = vsprintf('%s -h %s -u %s -p%s %s %s 2>/dev/null 1> %s', [
+            $command = vsprintf('%s -h %s -u %s -p%s %s %s %s 2>/dev/null 1> %s', [
                 $mysqlDumpPath,
                 escapeshellarg($this->dbConfig['host']),
                 escapeshellarg($this->dbConfig['user']),
                 escapeshellarg($this->dbConfig['password']),
                 escapeshellarg($this->dbConfig['dbname']),
                 $table,
+                implode(' ', $mysqlDumpOptions),
                 $outputFileName
             ]);
             exec($command);

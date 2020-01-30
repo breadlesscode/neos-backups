@@ -3,6 +3,7 @@
 * [File/Directory copy step](#file-directory-copy-step)
 * [Site export step](#site-export-step)
 * [MySQL table export step](#mysql-table-export-step)
+* [MySQL database export step](#mysql-database-export-step)
 
 
 ## File export step
@@ -44,4 +45,21 @@ Breadlesscode:
         mysqlBinPath: 'mysql' # default value
         tables:
           - neos_flow_security_account
+```
+
+## MySQL database export step
+
+This step exports a whole MySql-Database via the `mysqldump`-Binary.
+
+Example configuration:
+```yaml
+Breadlesscode:
+  Backups:
+    steps:
+      'Breadlesscode\Backups\Step\MysqlDatabaseExportStep':
+        mysqlDumpBinPath: 'mysqldump'
+        mysqlBinPath: 'mysql'
+        mysqlDumpOptions:
+          - --single-transaction
+          - --skip-extended-insert
 ```
