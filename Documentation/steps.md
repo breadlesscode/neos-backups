@@ -45,6 +45,9 @@ Breadlesscode:
         mysqlBinPath: 'mysql' # default value
         tables:
           - neos_flow_security_account
+        mysqlDumpOptions:
+          - --single-transaction
+          - --skip-extended-insert
 ```
 
 ## MySQL database export step
