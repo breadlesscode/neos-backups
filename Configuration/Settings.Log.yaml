@@ -12,7 +12,6 @@ Neos:
                  severityThreshold: '%LOG_INFO%'
                  maximumLogFileSize: 10485760
                  logFilesToKeep: 1
-
       backupLogger:
         logger: Neos\Flow\Log\Logger
         backend: Neos\Flow\Log\Backend\FileBackend
