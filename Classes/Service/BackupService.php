@@ -148,13 +148,23 @@ class BackupService
         // create archive
         $compressor = $this->getCompressor();
         $archivePath = $compressor->compress($backupPath, $this->config['tempPath']);
+
+        if (!is_file($archivePath)) {
+            $this->logger->error('couldn\`t create backup archive file: ' . $archivePath);
+
+            return false;
+        }
+
         // upload to file system and delete local one
         $this->filesystem->writeStream(basename($archivePath), fopen($archivePath, 'r'));
         unlink($archivePath);
         Files::removeDirectoryRecursively($backupPath);
+
         // update index
         $this->indexService->addBackup($backupName, new \DateTime(), $meta);
         $this->logger->info('added backup '.$backupName);
+
+        return true;
     }
 
     /**
