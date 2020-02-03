@@ -2,10 +2,9 @@
 namespace Breadlesscode\Backups\Service;
 
 use Breadlesscode\Backups\Compressor\BackupCompressorInterface;
-use Breadlesscode\Backups\BackupStep\StepInterface;
 use Breadlesscode\Backups\Factory\FilesystemFactory;
-use Breadlesscode\Backups\Generators\BackupNameBackupNameGenerator;
 use Breadlesscode\Backups\Generators\BackupNameGeneratorInterface;
+use Breadlesscode\Backups\Step\StepInterface;
 use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 use Neos\Flow\Annotations as Flow;
@@ -48,7 +47,7 @@ class BackupService
     protected $persistenceManager;
 
     /**
-     * @var LoggerInterface#
+     * @var LoggerInterface
      */
     protected $logger;
 
@@ -126,12 +125,9 @@ class BackupService
     /**
      * @throws Exception
      * @throws \League\Flysystem\FileExistsException
-     * @throws \Neos\Flow\Configuration\Exception\InvalidConfigurationTypeException
-     * @throws \Neos\Flow\ObjectManagement\Exception\CannotBuildObjectException
-     * @throws \Neos\Flow\ObjectManagement\Exception\UnknownObjectException
      * @throws \Neos\Utility\Exception\FilesException
      */
-    public function createBackup()
+    public function createBackup(): bool
     {
         $backupName = $this->generateBackupName();
         $backupPath = $this->getTemporaryBackupPath($backupName);
@@ -145,16 +141,27 @@ class BackupService
             /** @var StepInterface $step  */
             $step->backup();
         }
+
         // create archive
         $compressor = $this->getCompressor();
         $archivePath = $compressor->compress($backupPath, $this->config['tempPath']);
+
+        if (!is_file($archivePath)) {
+            $this->logger->error('couldn\`t create backup archive file: ' . $archivePath);
+
+            return false;
+        }
+
         // upload to file system and delete local one
         $this->filesystem->writeStream(basename($archivePath), fopen($archivePath, 'r'));
         unlink($archivePath);
         Files::removeDirectoryRecursively($backupPath);
+
         // update index
         $this->indexService->addBackup($backupName, new \DateTime(), $meta);
         $this->logger->info('added backup '.$backupName);
+
+        return true;
     }
 
     /**
