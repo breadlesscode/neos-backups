@@ -24,7 +24,7 @@ class BackupCommandController extends CommandController
             $this->quit();
         }
 
-        $this->outputLine('Creating backup...');
+        $this->output('Creating backup...');
 
         if (!$this->backupService->createBackup()) {
             $this->outputLine('<error>couldn\'t create backup</error>');
