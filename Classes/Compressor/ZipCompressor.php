@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Breadlesscode\Backups\Compressor;
 
 use Neos\Utility\Files;

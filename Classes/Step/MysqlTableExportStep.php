@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Breadlesscode\Backups\Step;
 
 use Neos\Flow\Annotations as Flow;
