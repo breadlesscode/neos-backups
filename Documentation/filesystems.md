@@ -26,6 +26,10 @@ Breadlesscode:
 
 ## SFTP
 
+Required composer dependencies:
+
+- `league/flysystem-sftp`
+
 Example configuration:
 ```yaml
 Breadlesscode:
@@ -44,6 +48,10 @@ Breadlesscode:
 ```
 ## AWS-S3
 
+Required composer dependencies:
+
+- `league/flysystem-aws-s3-v3`
+
 Example configuration:
 ```yaml
 Breadlesscode:
@@ -58,6 +66,10 @@ Breadlesscode:
 ```
 ## Azure Blob
 
+Required composer dependencies:
+
+- `league/flysystem-azure-blob-storage`
+
 Example configuration:
 ```yaml
 Breadlesscode:
@@ -71,6 +83,10 @@ Breadlesscode:
 ```
 ## Dropbox
 
+Required composer dependencies:
+
+- `spatie/flysystem-dropbox`
+
 Example configuration:
 ```yaml
 Breadlesscode:
@@ -80,6 +96,10 @@ Breadlesscode:
       authorizationToken: ''
 ```
 ## Google Storage
+
+Required composer dependencies:
+
+- `superbalist/flysystem-google-storage`
 
 Example configuration:
 ```yaml
