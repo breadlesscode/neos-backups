@@ -14,7 +14,7 @@ Example configuration:
 Breadlesscode:
   Backups:
     steps:
-      'Breadlesscode\Backups\Step\CopyStep':
+      'Breadlesscode\Backups\Step\FileExportStep':
         paths:
           logs: '%FLOW_PATH_DATA%Logs'
 ```
