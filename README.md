@@ -5,7 +5,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/breadlesscode/neos-backups.svg?style=social&label=Stars)](https://github.com/breadlesscode/neos-backups/stargazers)
 [![GitHub watchers](https://img.shields.io/github/watchers/breadlesscode/neos-backups.svg?style=social&label=Watch)](https://github.com/breadlesscode/neos-backups/subscription)
 
-This Neos CMS plugin is for creating backups on different filesystems. 
+This Neos CMS plugin is for creating backups on different filesystems, from the commandline.
+It extends Neos Flow with the commandidentifier group "backup".
 
 - [Documentation](https://breadlesscode.github.io/neos-backups)
 
